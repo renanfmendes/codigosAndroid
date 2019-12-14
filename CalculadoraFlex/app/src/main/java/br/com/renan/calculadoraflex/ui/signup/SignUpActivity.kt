@@ -55,7 +55,6 @@ class SignUpActivity : AppCompatActivity() {
                     returnIntent.putExtra("email", inputEmail.text.toString())
                     setResult(RESULT_OK, returnIntent)
                     finish()
-                    finish()
                 } else {
                     Toast.makeText(this, "Erro ao criar o usuário", Toast.LENGTH_SHORT).show()
                 }

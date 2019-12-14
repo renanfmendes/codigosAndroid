@@ -8,7 +8,9 @@ import android.widget.Toast
 import br.com.renan.calculadoraflex.R
 import br.com.renan.calculadoraflex.ui.form.FormActivity
 import br.com.renan.calculadoraflex.ui.signup.SignUpActivity
+import br.com.renan.calculadoraflex.utils.DatabaseUtil
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.iid.FirebaseInstanceId
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -20,7 +22,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
         mAuth = FirebaseAuth.getInstance()
+        mAuth.currentUser?.reload()
         if (mAuth.currentUser != null) {
             goToHome()
         }
@@ -49,6 +53,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToHome() {
+        FirebaseInstanceId.getInstance().instanceId.addOnSuccessListener(this) {
+                instanceIdResult ->
+            val newToken = instanceIdResult.token
+            DatabaseUtil.saveToken(newToken)
+        }
         val intent = Intent(this, FormActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
@@ -57,8 +66,13 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == newUserRequestCode && resultCode == Activity.RESULT_OK) {
-            inputLoginEmail.setText(data?.getStringExtra("email"))
+        when(requestCode) {
+            newUserRequestCode -> {
+                when(resultCode) {
+                    Activity.RESULT_OK ->
+                        inputLoginEmail.setText(data?.getStringExtra("email"))
+                }
+            }
         }
     }
 }

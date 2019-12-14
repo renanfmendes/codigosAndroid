@@ -39,6 +39,8 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-database:18.0.0'
     implementation 'com.google.firebase:firebase-auth:18.0.0'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation 'com.google.firebase:firebase-config:16.1.0'
 
     implementation 'com.facebook.stetho:stetho:1.5.1'
 
