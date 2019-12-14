@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "498509955123",
+    "firebase_url": "https://calculadoraflexrenan.firebaseio.com",
+    "project_id": "calculadoraflexrenan",
+    "storage_bucket": "calculadoraflexrenan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498509955123:android:42813116aa5f1839156346",
+        "android_client_info": {
+          "package_name": "br.com.renan.calculadoraflex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498509955123-lsjido4c26mmd0ckgn55i8du2vraut4h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.renan.calculadoraflex",
+            "certificate_hash": "80d7aba3af0f29d89e62871ba62e18dd32e7bd9f"
+          }
+        },
+        {
+          "client_id": "498509955123-5f5qcn172mvo6rd5v1m6k043s6a2ajpm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpesfbB7bNVtLVI5N1zGN5_yLc7JgDVg4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498509955123-5f5qcn172mvo6rd5v1m6k043s6a2ajpm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

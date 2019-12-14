@@ -21,10 +21,10 @@ class SplashActivity : AppCompatActivity() {
         val preferences = getSharedPreferences("user_preferences", Context.MODE_PRIVATE)
         val isFirstOpen = preferences.getBoolean("open_first", true)
         if (isFirstOpen) {
-            showLogin()
-        } else {
             markAppAlreadyOpen(preferences)
             showSplash()
+        } else {
+            showLogin()
         }
     }
 
@@ -49,9 +49,7 @@ class SplashActivity : AppCompatActivity() {
         ivLogo.startAnimation(anim)
         //Chama a próxima tela após 3,5 segundos definido na SPLASH_DISPLAY_LENGTH
         Handler().postDelayed({
-            val nextScreen = Intent(this@SplashActivity, FormActivity::class.java)
-            startActivity(nextScreen)
-            finish()
+            showLogin()
         }, TEMPO_AGUARDO_SPLASHSCREEN)
     }
 }
